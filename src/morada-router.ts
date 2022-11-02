@@ -4,11 +4,13 @@ import { adrianaPriceCleaner } from './utils/adriana-price-cleaner.ts'
 
 export const router = createPlaywrightRouter();
 
-const dataset = await Dataset.open('morada-imoveis')
+const dataset = await Dataset.open('casas-para-alugar')
 router.addHandler('DETAIL', async ({ request, log, parseWithCheerio }) => {
   log.info(`Extracting data: ${request.url}`)
   const $ = await parseWithCheerio();
-  const titulo = $('h1').text()
+  let titulo = $('h1').text()
+  const regex = /\s+ /ig;
+  titulo = titulo.replaceAll(regex, ' ')
   const rawPreco = $('.valorImovel').text()
   const bairro = $('figure').text()
   const rawAreaConstruida = ""
@@ -21,9 +23,6 @@ router.addHandler('DETAIL', async ({ request, log, parseWithCheerio }) => {
   const results = {
     codigo: dataCleaner(codigo),
     url: request.url,
-    interesse: false,
-    contato: false,
-    descarte: false,
     titulo,
     preco: adrianaPriceCleaner(rawPreco),
     bairro,

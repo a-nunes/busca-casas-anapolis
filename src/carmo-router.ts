@@ -3,7 +3,7 @@ import { dataCleaner } from './utils/data-cleaner.ts'
 
 export const router = createPlaywrightRouter();
 
-const dataset = await Dataset.open('carmo-imoveis')
+const dataset = await Dataset.open('casas-para-alugar')
 router.addHandler('DETAIL', async ({ request, log, parseWithCheerio }) => {
   log.info(`Extracting data: ${request.url}`)
   const $ = await parseWithCheerio();
@@ -27,9 +27,6 @@ router.addHandler('DETAIL', async ({ request, log, parseWithCheerio }) => {
   })
   const results = {
     codigo,
-    interesse: false,
-    contato: false,
-    descarte: false,
     url: request.url,
     titulo,
     preco: dataCleaner(rawPreco),

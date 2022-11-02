@@ -4,7 +4,7 @@ import { adrianaPriceCleaner } from './utils/adriana-price-cleaner.ts'
 
 export const router = createPlaywrightRouter();
 
-const dataset = await Dataset.open('adriana-imoveis')
+const dataset = await Dataset.open('casas-para-alugar')
 router.addHandler('DETAIL', async ({ request, page, log, parseWithCheerio }) => {
   log.info(`Extracting data: ${request.url}`)
   const $ = await parseWithCheerio();
@@ -34,9 +34,6 @@ router.addHandler('DETAIL', async ({ request, page, log, parseWithCheerio }) => 
   const codigo = request.url.split('/').slice(-1)[0]
   const results = {
     codigo,
-    interesse: false,
-    contato: false,
-    descarte: false,
     url: request.url,
     titulo,
     preco: adrianaPriceCleaner(rawPreco),
