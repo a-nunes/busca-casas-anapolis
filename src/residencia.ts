@@ -1,4 +1,4 @@
-import { log, Dataset } from 'crawlee';
+import { log, Dataset, purgeDefaultStorages } from 'crawlee';
 import fetch from 'node-fetch'
 
 const BODY = {"aceitaFinanciamento":null,"areaMax":null,"areaMin":null,"bairros":[],"caracteristicas":null,"codigo":null,"condominioFechado":null,"condominios":[],"finalidade":"ALUGAR","minBanheiros":null,"minQuartos":null,"minSuites":null,"minVagas":null,"municipio":["Anapolis"],"permuta":null,"tipos":["CASA"],"unidadeArea":"METROS","valorMax":null,"valorMin":null,"uf":null}
@@ -42,8 +42,8 @@ interface response {
     anuncios: anuncio[]
 }
 
+await purgeDefaultStorages();
 const dataset = await Dataset.open('imobiliaria-residencia')
-
 log.info('Setting up crawler for Imobiliaria Residencia.');
 const res: response = await fetch('https://www.imobiliariaresidencia.com.br/api/tenants/IAC-IMOB-BE3D8076/anunciosSiteSemMapa?offset=0', {
   method: 'POST',
@@ -72,4 +72,4 @@ for(const anuncio of res.anuncios) {
     log.info(`Saving data: ${anuncio.anuncioId}`)
     await dataset.pushData(results);
 }
-await dataset.exportToCSV('imobiliaria-residencia', { toKVS: 'imobiliaria-residencia'})
+await dataset.exportToCSV('casas-para-alugar')
