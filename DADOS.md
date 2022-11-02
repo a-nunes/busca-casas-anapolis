@@ -1,0 +1,33 @@
+## DADOS
+- Título span.first-line
+- Valor do Aluguel p.price
+- Bairro .item-breadcrumb6
+- Área Construída .digital .usable_floor_area
+- Área do Terreno .digital .gross_floor_area
+- Quartos .digital .bedrooms
+- Suítes .digital .suites
+- Banheiros .digital .bathrooms
+- Vagas .digital .garages
+- URL
+- Código .property-reference
+
+## IMOBILIÁRIAS
+- Office v
+- Residencia v
+- Adriana v
+- Ander
+- Maria Mendes v
+- Farol v
+- Vesper x
+- Encontre imoveis anápolis x
+- J Carlos x
+- Exho x
+- Denio Aquino 
+- Frederico Godoy x
+- Welington imóveis x
+- Morada imóveis v
+- Lúcio Jaime x 
+- WE imóveis x
+- W imóveis x
+- w carvalho imóveis x
+- Carmo v

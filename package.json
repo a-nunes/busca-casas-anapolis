@@ -1,0 +1,32 @@
+{
+    "name": "busca-casas-aluguel",
+    "version": "0.0.1",
+    "type": "module",
+    "description": "This is an example of a Crawlee project.",
+    "dependencies": {
+        "crawlee": "^3.0.0",
+        "node-fetch": "^3.2.10",
+        "playwright": "*"
+    },
+    "devDependencies": {
+        "@apify/tsconfig": "^0.1.0",
+        "ts-node": "^10.8.0",
+        "typescript": "^4.7.4"
+    },
+    "scripts": {
+        "start": "npm run start:office && npm run start:residencia && npm run start:mariamendes && npm run start:adriana && npm run start:farol && npm run start:morada && npm run start:carmo",
+        "start:prod": "node dist/main.js",
+        "start:dev": "ts-node-esm -T src/main.ts",
+        "start:office": "ts-node-esm -T src/office.ts",
+        "start:residencia": "ts-node-esm -T src/residencia.ts",
+        "start:mariamendes": "ts-node-esm -T src/maria-mendes.ts",
+        "start:adriana": "ts-node-esm -T src/adriana.ts",
+        "start:farol": "ts-node-esm -T src/farol.ts",
+        "start:morada": "ts-node-esm -T src/morada.ts",
+        "start:carmo": "ts-node-esm -T src/carmo.ts",
+        "build": "tsc",
+        "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1"
+    },
+    "author": "It's not you it's me",
+    "license": "ISC"
+}
