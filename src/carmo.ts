@@ -8,5 +8,3 @@ const crawler = new PlaywrightCrawler({
 log.info('Adding requests to the queue.');
 await crawler.addRequests(['https://www.carmoimoveis.com.br/imoveis/para-alugar/casa']);
 await crawler.run();
-const dataset = await Dataset.open('casas-para-alugar')
-await dataset.exportToCSV('casas-para-alugar', { toKVS: 'casas-para-alugar' })
