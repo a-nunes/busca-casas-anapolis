@@ -15,7 +15,7 @@
         "typescript": "^4.7.4"
     },
     "scripts": {
-        "start": "rimraf storage && npm run start:office && npm run start:residencia && npm run start:mariamendes && npm run start:adriana && npm run start:farol && npm run start:morada && npm run start:carmo && csv2notion --token 4d95cbb65a581a344ea08f505a3dedc0f8c1d2e1f4708786ad57ee8c3eb6192808179aa0fe063240aee032a629a1f1ff8d2d024f69248c4f4dfa33a748377118b2d8bb59b4ed76aafddaf57f7754 --url https://www.notion.so/663ffee0903b44918c2dd49759b5c4f3?v=f90eb003c5854736925d2132fe32e0eb --merge  ./storage/key_value_stores/casas-para-alugar/casas-para-alugar.csv",
+        "start": "rimraf storage && npm run start:office && npm run start:residencia && npm run start:mariamendes && npm run start:adriana && npm run start:farol && npm run start:morada && npm run start:carmo && npm run start:olx && csv2notion --token 4d95cbb65a581a344ea08f505a3dedc0f8c1d2e1f4708786ad57ee8c3eb6192808179aa0fe063240aee032a629a1f1ff8d2d024f69248c4f4dfa33a748377118b2d8bb59b4ed76aafddaf57f7754 --url https://www.notion.so/b135c6af6604456fbc24370e4f3b9bb7?v=0080e7543f7d4b45ad8cb22c664642be --merge  ./storage/key_value_stores/casas-para-alugar/casas-para-alugar.csv",
         "start:prod": "node dist/main.js",
         "start:dev": "ts-node-esm -T src/main.ts",
         "start:office": "ts-node-esm -T src/office.ts",
@@ -25,6 +25,7 @@
         "start:farol": "ts-node-esm -T src/farol.ts",
         "start:morada": "ts-node-esm -T src/morada.ts",
         "start:carmo": "ts-node-esm -T src/carmo.ts",
+        "start:olx": "ts-node-esm -T src/olx.ts",
         "build": "tsc",
         "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1"
     },
